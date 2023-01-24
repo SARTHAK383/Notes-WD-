@@ -1,0 +1,47 @@
+key point- *line = very crucial. 
+          to name a class ie. container type div.container
+           to add id to type div#notes.
+           function(e) is event object in js line 5.
+           font family used for different font style.
+           class can be same but id must be uniquely identified.
+
+
+                                                     [HTML]
+
+
+line 17- navbar-dark and bg dark are used to give a dark appearance to the navigation bar.
+line 39- my-3 gives margin in terms of y axis. It is also a bootstrap class.
+line 45- we use button so that it can proccess once clicked on just like a switch.
+line 46- we use text area to create a space where user can type something like notes or pece of text, etc.
+*line 53- bootstrap has two classes-: we use contaier fluid as it doesn't leave any space and use all the space unlike container class which leaves spaces (in notes app see left and right spaces). Also we use row class so that all our cards comes in row and you can also set it to coloumns as per your choice. 
+line 55,63,71,79- we add different cards that can store text from user. We also use mx-2 and my-2 so that we can get a margin of 2 units from each (x and y)axis.
+line 33- we made id to searchTxt to make the search button work and it will give some input tags. 
+
+
+                                                [REFERENCE/MIRROR]
+
+
+line 4 in js is refering to line 48 in html as it is providing an event listner to addBtn.
+line 7 inn js is refering to line 46 in html as is is providing an event listner to addTxt.
+
+
+                                                    [JS]
+
+line 8- we use localStorage.getItem('notes'); to get  all the items named notes which are already present or most probably if its null.
+line 10- we declare notesObj as an empty array so that we can store the notes in it.
+*line 13- we use  notesObj = JSON.parse(notes); as parse takes string as an argument and returns object.
+line 15 - we add notes.push(addTxt.value); to push addTxtvalue in notes so that if anyone clicks on addBtn then notes will get updated.
+*line 16 - we use localStorage.setItem('notes', JSON.stringify(notes)); to stringyfy notes as it was in array form initially because in a local storage we can only set strings.
+line 17- we use addTxt.value = ""; and set the value to blank so that when you make notes and click on add notes then it can be removed from workspace(nahi to wo likha ka likha hi reh jaega as in example sometime submit button dabane k baad bhi notes wahi reh jaate h).
+line 13-18 to work first clear the local storage using localStorage.clear();
+line 31- we use += so that thhe card could append again and again in html string.
+line 57- function wil work and perform delete operation when someone press delete note button line 41.
+*line 41- we use <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</ so as to make a button which works when the user click on it. And giving index as an id to on click button class will help function deleteNote work. Also (this.id) mean it will remove the id of the element on which the user clicks. 
+line 64- we use otesObj.splice(index, 1); beacuse splice takes the first argument(ie. index) and remove the element according to it.(ie. 1).
+line 65- we use localStorage.setItem("notes", JSON.stringify(notesObj)); to update the local storage as without this the ffunction will show that it is deleting the element but actually it will not as local storagge is not updated.
+line 72- we used event listner on searchTxt as input beacuse it will be fired when user will type as input.
+line 75,76- inputVal will store the text or value you type in the search box.
+line 77- we use   let noteCards = document.getElementsByClassName('noteCard');
+                  Array.from(noteCards).forEach(function(element){
+so that it can check the input(on search) to match with the content in notecard(ie. class = notecard in html).
+line 79- we use get element by tag as to take the paragraph(p) inside it the div tag in line 40. And we use innerText so that i can get a string as cardTxt is a element.
